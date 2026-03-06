@@ -1,0 +1,223 @@
+/* Загальні налаштування */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Контейнер для першої сторінки (index.html) */
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 90%;
+    margin: 20px; 
+    z-index: 10;
+}
+
+/* Квіти, що падають (фон) */
+#falling-photos-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.falling-photo {
+    position: absolute;
+    width: 250px; 
+    height: auto;
+    top: -300px;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+}
+
+@keyframes fall {
+    0% { top: -300px; transform: rotate(0deg); }
+    100% { top: 110vh; transform: rotate(360deg); }
+}
+
+/* Основні контейнери гри та галереї */
+.game-container, #final-gallery {
+    text-align: center;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    max-width: 950px;
+    width: 95%;
+    margin: 20px;
+}
+
+h3, h2 { 
+    color: #764ba2; 
+    margin-bottom: 20px; 
+}
+
+/* Гра "Знайди пару" */
+.memory-game {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    max-width: 350px;
+    margin: 20px auto;
+}
+
+.card {
+    width: 100%;
+    aspect-ratio: 1/1;
+    background: #764ba2;
+    color: white;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card.flipped { 
+    background: #fff; 
+    border: 2px solid #764ba2; 
+    color: #000; 
+    transform: rotateY(180deg);
+}
+
+.card.matched { 
+    visibility: hidden; 
+    opacity: 0;
+}
+
+/* Тряска поля при помилці */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+}
+
+/* Галерея та Картки (Фінал) */
+.hidden { display: none; }
+
+.fade-in-gallery {
+    display: block !important;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.photos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+/* ВИПРАВЛЕНА КАРТКА: тепер вона адаптивна */
+.photo-card {
+    background: white;
+    padding: 15px;
+    width: 280px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content; /* Рамка обтискає вміст і росте разом з текстом */
+}
+
+.photo-card:hover {
+    transform: translateY(-5px);
+}
+
+.photo-frame {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Текст привітання під фото */
+.photo-text {
+    max-height: 0; /* Спочатку сховано */
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    color: #444;
+    font-style: italic;
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* Активний стан при кліку */
+.photo-card.active .photo-text {
+    max-height: 500px; /* Достатньо місця для будь-якого тексту */
+    opacity: 1;
+    margin-top: 15px;
+    padding-bottom: 10px;
+}
+
+/* Кнопки */
+.button-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #667eea;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.button-link:hover {
+    background: #764ba2;
+    transform: scale(1.05);
+}
+.gallery-controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+    padding-bottom: 20px;
+}
+
+/* Колір для другої кнопки, щоб вона виділялася */
+.button-link.secondary {
+    background: #e91e63; /* Насичений рожевий колір */
+}
+
+.button-link.secondary:hover {
+    background: #c2185b;
+}
