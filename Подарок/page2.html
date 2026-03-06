@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8 Березня - Сюрприз</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Rose.png" type="image/png">
+</head>
+<body>
+    <div id="falling-photos-container"></div>
+
+    <div class="game-container">
+        <h3>🌸 ~Знайди пару🧩~ 🌸</h3>
+        <p>Знайди всі однакові квіти, щоб відкрити подарунок!</p>
+        <div class="memory-game" id="game-board"></div>
+        <div id="game-message"></div>
+        <a href="index.html" class="button-link">Назад</a>
+    </div>
+
+    <div id="final-gallery" class="hidden">
+        <h2>Твої сюрпризи 🎁</h2>
+        <p>Натисни на фото, щоб прочитати послання</p>
+        
+        <div class="photos-grid">
+            <div class="photo-card" onclick="toggleText(this)">
+                <div class="photo-frame">
+                    <img src="photos/Photo1.png" alt="Фото 1">
+                </div>
+                <div class="photo-text">
+                    <p>"Сяй, квітни та залишайся собою, адже ти — унікальна. Нехай кожен твій день буде схожий на свято, а світ навколо дарує лише приємні сюрпризи! ✨"</p>
+                </div>
+            </div>
+
+            <div class="photo-card" onclick="toggleText(this)">
+                <div class="photo-frame">
+                    <img src="photos/Photo2.png" alt="Фото 2">
+                </div>
+                <div class="photo-text">
+                    <p>"Кажуть, весна — це час краси, але я точно знаю, що найкрасивіша дівчина зараз читає цей текст. Дякую, що прикрашаєш моє життя! З 8 Березня! 🌹"</p>
+                </div>
+            </div>
+
+            <div class="photo-card" onclick="toggleText(this)">
+                <div class="photo-frame">
+                    <img src="photos/Photo3.png" alt="Фото 3">
+                </div>
+                <div class="photo-text">
+                    <p>"Нехай ця весна принесе тобі стільки ж радості, скільки твоя посмішка дарує мені щодня. Ти — моє натхнення і моє найтепліше сонце. Зі святом, неймовірна! 🌸"</p>
+                </div>
+            </div>
+
+            <div class="photo-card" onclick="toggleText(this)">
+                <div class="photo-frame">
+                    <img src="photos/Photo4.png" alt="Фото 4">
+                </div>
+                <div class="photo-text">
+                    <p>"У 8 Березня бажаю<br> Тобі любові і тепла,<br> Романтики в житті без краю,<br> Благополуччя і добра!<br><br> Жіночого бажаю щастя,<br> Щоб файно було в тебе все,<br> Нехай у тебе все удасться,<br> І радість у душі живе! 🌸"</p>
+                </div>
+            </div>
+
+            <div class="photo-card" onclick="toggleText(this)">
+                <div class="photo-frame">
+                    <img src="photos/Photo5.png" alt="Фото 5">
+                </div>
+                <div class="photo-text">
+                    <p>" 🌷З 8 Березня тебе,<br> Будь розкішна та красива.<br> Залишайся кожним днем<br> Ти усміхнена, щаслива!<br><br> Безліч радощів, тепла<br> Та усіх бажань здійснення.<br> Хай чарівная весна<br> Мрій дарує наближення!🌷"</p>
+                </div>
+            </div>
+
+            <div class="photo-card" onclick="toggleText(this)">
+                <div class="photo-frame">
+                    <img src="photos/Photo6.png" alt="Фото 6">
+                </div>
+                <div class="photo-text">
+                    <p>" 8️⃣🌷З 8 Березня, дівчина! Бажаю весняного настрою, багато квітів, подарунків та гарних слів, щастя, ніжності та теплого Сонця над головою! 8️⃣🌷"</p>
+                </div>
+            </div>
+
+            <div class="photo-card" onclick="toggleText(this)">
+                <div class="photo-frame">
+                    <img src="photos/Photo7.png" alt="Фото 7">
+                </div>
+                <div class="photo-text">
+                    <p>"Нехай і в майбутьньму тобі дарують радість і тепло, в цей день бажаю тобі щастя і любові! 💖"</p>
+                </div>
+            </div>
+
+            <div class="photo-card" onclick="toggleText(this)">
+                <div class="photo-frame">
+                    <img src="photos/Photo8.png" alt="Фото 8">
+                </div>
+                <div class="photo-text">
+                    <p>"🎁Ти — найкраща дівчина або подруга (як ти хочеш) яку я зустрічав, хочу тобі сказати, що ти дуже важлива для мене тому ніколи не забувай про це і не сумуй ти - ✨✨✨!"</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-controls">
+            <button class="button-link" onclick="location.reload()">🔄 Зіграти знову</button>
+            <a href="page3.html" class="button-link secondary">👀 Продовжити перегляд</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
